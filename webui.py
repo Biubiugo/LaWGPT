@@ -140,6 +140,7 @@ def main(
                 )
                 with torch.no_grad():
                     print("这里=======================================")
+                    model.cuda()
                     model.generate(**kwargs)
 
             def generate_with_streaming(**kwargs):
