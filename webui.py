@@ -45,6 +45,7 @@ def main(
             torch_dtype=torch.float16,
             device_map="auto",
         )
+        model=model.to(device)
         try:
             model = PeftModel.from_pretrained(
                 model,
@@ -59,6 +60,7 @@ def main(
             device_map={"": device},
             torch_dtype=torch.float16,
         )
+        model=model.to(device)
         try:
             model = PeftModel.from_pretrained(
                 model,
