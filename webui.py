@@ -153,7 +153,6 @@ def main(
                         break
 
                     yield prompter.get_response(decoded_output)
-            print(decoded_output)
             return  # early return for stream_output
 
         # Without streaming
