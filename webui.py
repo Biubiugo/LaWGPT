@@ -139,6 +139,7 @@ def main(
                     Stream(callback_func=callback)
                 )
                 with torch.no_grad():
+                    print("这里=======================================")
                     model.generate(**kwargs)
 
             def generate_with_streaming(**kwargs):
@@ -150,7 +151,7 @@ def main(
                 for output in generator:
                     # new_tokens = len(output) - len(input_ids[0])
                     decoded_output = tokenizer.decode(output)
-
+                    print(decoded_output)
                     if output[-1] in [tokenizer.eos_token_id]:
                         break
 
