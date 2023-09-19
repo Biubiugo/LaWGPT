@@ -23,7 +23,6 @@ try:
 except: 
     pass
 
-print(device+"=========================================")
 
 def main(
     load_8bit: bool = False,
@@ -139,7 +138,6 @@ def main(
                     Stream(callback_func=callback)
                 )
                 with torch.no_grad():
-                    print("这里=======================================")
                     model.cuda()
                     model.generate(**kwargs)
 
@@ -152,7 +150,8 @@ def main(
                 for output in generator:
                     # new_tokens = len(output) - len(input_ids[0])
                     decoded_output = tokenizer.decode(output)
-                    print(decoded_output)
+                    print(output[-1])
+                    print(tokenizer.eos_token_id)
                     if output[-1] in [tokenizer.eos_token_id]:
                         break
 
