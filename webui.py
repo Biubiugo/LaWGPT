@@ -16,6 +16,8 @@ if torch.cuda.is_available():
 else:
     device = "cpu"
 
+print(device+"=========================================")
+
 try:
     if torch.backends.mps.is_available():
         device = "mps"
@@ -45,7 +47,6 @@ def main(
             torch_dtype=torch.float16,
             device_map="auto",
         )
-        model=model.to(device)
         try:
             model = PeftModel.from_pretrained(
                 model,
@@ -60,7 +61,6 @@ def main(
             device_map={"": device},
             torch_dtype=torch.float16,
         )
-        model=model.to(device)
         try:
             model = PeftModel.from_pretrained(
                 model,
