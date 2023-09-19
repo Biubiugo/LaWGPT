@@ -16,7 +16,6 @@ if torch.cuda.is_available():
 else:
     device = "cpu"
 
-print(device+"=========================================")
 
 try:
     if torch.backends.mps.is_available():
@@ -24,6 +23,7 @@ try:
 except: 
     pass
 
+print(device+"=========================================")
 
 def main(
     load_8bit: bool = False,
